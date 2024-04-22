@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="singleCard">
+
+        
+    </div>
+
+</body>
+<script>
+
+function FetchApi()
+{
+   fetch("https://fakestoreapi.com/products")
+   .then((res)=>res.json())
+   .then((data)=>CardList(data))
+   .catch((err)=>console.log(err)); 
+}
+FetchApi();
+
+function CardList(data)
+{
+    let carddata =data.map((el,i)=>ShowCard(el.id,el.title,el.category,el.description,el.image,el.price))
+    console.log(carddata)
+    document.getElementById("singleCard").innerHTML=carddata
+}
+
+function ShowCard(id,title,category,description,image,price)
+{
+   
+   let ShowData=`
+   
+   <h1>${id}</h1>
+   <h1>${title}</h1>
+   <p>${category}</p>
+   <p>${description}</p>
+   <img src=${image} alt=${title}>
+   <p>${price}</p>
+  
+   `;
+   return ShowCard;
+}
+
+
+</script>
+</html>
