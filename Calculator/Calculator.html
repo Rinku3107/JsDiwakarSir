@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 60px;
+        color: teal; 
+      }
+
+      #calculator {
+        height: 500px;
+        width: 400px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        margin: auto;
+        padding: 40px;
+        border-radius: 30px;
+      }
+
+      #display {
+        height: 60px;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: auto;
+        border-radius: 10px;
+      }
+
+      #keyboard {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 80px);
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      #keyboard > div {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #keyboard > div:hover {
+        background-color: teal;
+      }
+
+      .black {
+        background-color: black;
+        color: white;
+      }
+
+      .red {
+        background-color: red;
+        color: white;
+      }
+      #display {
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Calculator📱</h1>
+    <div id="calculator">
+      <div id="display"></div>
+      <div id="keyboard">
+        <div onclick="ToDisplay('1')">1</div>
+        <div onclick="ToDisplay('2')">2</div>
+        <div onclick="ToDisplay('3')">3</div>
+        <div onclick="ClearDisplay()" class="red">Clear</div>
+        <div onclick="ToDisplay('4')">4</div>
+        <div onclick="ToDisplay('5')">5</div>
+        <div onclick="ToDisplay('6')">6</div>
+        <div onclick="ToDisplay('-')" class="black">-</div>
+        <div onclick="ToDisplay('7')">7</div>
+        <div onclick="ToDisplay('8')">8</div>
+        <div onclick="ToDisplay('9')">9</div>
+        <div onclick="ToDisplay('*')" class="black">*</div>
+        <div onclick="ToDisplay('.')">.</div>
+        <div onclick="ToDisplay('0')">0</div>
+        <div onclick="ToDisplay('+')" class="black">+</div>
+        <div onclick="ToDisplay('/')" class="black">/</div> 
+        <div onclick="Calculate()" class="black">=</div>  
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+    const display= document.getElementById("display");
+
+    function ToDisplay(event)
+    {
+        display.textContent += event;
+    }
+    function ClearDisplay()
+    {
+        display.textContent =" "
+    }
+    function Calculate()
+    {
+        display.textContent = eval(display.textContent);
+    }
+  
+</script>
